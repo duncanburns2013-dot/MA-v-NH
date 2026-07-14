@@ -24,11 +24,12 @@
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#050810;--bg2:#0a0f1a;--bg3:#111827;--bg4:#1a2236;
-  --border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.15);
+  --bg:#0a0e1c;--bg2:#131a2e;--bg3:#1a2338;--bg4:#232e48;
+  --border:rgba(255,255,255,0.09);--border2:rgba(255,255,255,0.17);
   --t1:#fff;--t2:#c8d0df;--t3:#8892a8;
-  --red:#ff2d2d;--red-g:rgba(255,45,45,0.18);--red-s:rgba(255,45,45,0.06);
-  --blue:#00bfff;--blue-g:rgba(0,191,255,0.18);--blue-s:rgba(0,191,255,0.06);
+  /* MA = blue, NH = red (var names kept for minimal diff; values swapped) */
+  --red:#00bfff;--red-g:rgba(0,191,255,0.18);--red-s:rgba(0,191,255,0.06);
+  --blue:#ff2d2d;--blue-g:rgba(255,45,45,0.18);--blue-s:rgba(255,45,45,0.06);
   --green:#00ff88;--green-g:rgba(0,255,136,0.18);--green-s:rgba(0,255,136,0.06);
   --gold:#ffcc00;--gold-g:rgba(255,204,0,0.12);
   --warn:#ff7700;--warn-g:rgba(255,119,0,0.1);
@@ -36,17 +37,27 @@
   --r:14px;
 }
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t1);line-height:1.6;overflow-x:hidden}
+body{font-family:'DM Sans',sans-serif;color:var(--t1);line-height:1.6;overflow-x:hidden;
+  background:
+    radial-gradient(ellipse 900px 600px at 12% 0%,rgba(0,191,255,0.10),transparent 60%),
+    radial-gradient(ellipse 900px 600px at 88% 15%,rgba(255,45,45,0.09),transparent 60%),
+    radial-gradient(ellipse 1100px 800px at 50% 100%,rgba(88,60,180,0.10),transparent 65%),
+    linear-gradient(160deg,#0d1226 0%,#0a0e1c 45%,#0e1424 100%);
+  background-attachment:fixed;
+}
 
 /* ════════ HERO ════════ */
 .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 700px 500px at 20% 45%,rgba(255,45,45,0.12),transparent),radial-gradient(ellipse 700px 500px at 80% 55%,rgba(0,191,255,0.12),transparent),radial-gradient(ellipse 1400px 900px at 50% 50%,rgba(20,30,60,0.5),transparent)}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 85% 65% at 50% 50%,black 30%,transparent 75%)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 700px 500px at 20% 45%,rgba(0,191,255,0.14),transparent),radial-gradient(ellipse 700px 500px at 80% 55%,rgba(255,45,45,0.13),transparent),radial-gradient(ellipse 1400px 900px at 50% 50%,rgba(40,50,90,0.35),transparent)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 85% 65% at 50% 50%,black 30%,transparent 75%)}
 .hero-content{position:relative;z-index:1;text-align:center;max-width:960px;padding:2rem}
+.news-pill{display:inline-flex;align-items:center;gap:.55rem;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.05em;color:#c8d0df;background:rgba(255,255,255,0.06);border:1px solid var(--border2);padding:.5rem 1rem;border-radius:99px;margin-bottom:1.4rem;opacity:0;animation:fadeUp .8s ease forwards .05s}
+.news-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold)}
+.news-pill b{color:#fff;font-weight:700}
 .hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--t3);margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s ease forwards .2s}
 .hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,7.5vw,6rem);font-weight:900;line-height:1.02;margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s ease forwards .4s}
-.hero h1 .ma{color:var(--red);text-shadow:0 0 40px rgba(255,45,45,0.3)}
-.hero h1 .nh{color:var(--blue);text-shadow:0 0 40px rgba(0,191,255,0.3)}
+.hero h1 .ma{color:var(--red);text-shadow:0 0 40px rgba(0,191,255,0.35)}
+.hero h1 .nh{color:var(--blue);text-shadow:0 0 40px rgba(255,45,45,0.35)}
 .hero h1 .vs{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:.35em;vertical-align:middle;color:var(--t3);margin:0 .4em}
 .hero-subtitle{font-size:1.1rem;color:var(--t2);max-width:620px;margin:0 auto 3rem;opacity:0;animation:fadeUp .8s ease forwards .6s}
 .hero-stats{display:flex;gap:1px;background:var(--border);border-radius:var(--r);overflow:hidden;opacity:0;animation:fadeUp .8s ease forwards .8s}
@@ -59,7 +70,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t1);line-
 .scroll-cta p{font-size:.6rem;color:var(--t3);text-transform:uppercase;letter-spacing:.25em}
 
 /* ════════ NAV ════════ */
-.nav{position:sticky;top:0;z-index:100;background:rgba(5,8,16,0.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:box-shadow .3s}
+.nav{position:sticky;top:0;z-index:100;background:rgba(10,14,28,0.82);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:box-shadow .3s}
 .nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,0.5)}
 .nav-inner{max-width:1340px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:center;height:54px;gap:3px;overflow-x:auto;scrollbar-width:none}
 .nav-inner::-webkit-scrollbar{display:none}
@@ -83,8 +94,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t1);line-
 .g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
 
 /* ════════ CARDS ════════ */
-.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;transition:all .3s cubic-bezier(.4,0,.2,1)}
-.card:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:0 12px 48px rgba(0,0,0,.35)}
+.card{background:linear-gradient(160deg,rgba(255,255,255,0.035),rgba(255,255,255,0)),var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;transition:all .3s cubic-bezier(.4,0,.2,1);box-shadow:0 1px 0 rgba(255,255,255,0.04) inset}
+.card:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:0 16px 50px rgba(0,10,30,.45),0 1px 0 rgba(255,255,255,0.06) inset}
 .card-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
 .card-t{font-size:.78rem;font-weight:700;color:var(--t2);text-transform:uppercase;letter-spacing:.08em}
 .badge{font-family:'JetBrains Mono',monospace;font-size:.62rem;padding:.2rem .5rem;border-radius:6px;font-weight:600}
@@ -107,7 +118,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t1);line-
 .comp-tag{font-family:'JetBrains Mono',monospace;font-size:.62rem;width:24px;flex-shrink:0;color:var(--t3);font-weight:600}
 .comp-track{flex:1;height:24px;background:var(--bg3);border-radius:6px;overflow:hidden}
 .comp-fill{height:100%;border-radius:6px;transition:width 1.3s cubic-bezier(.4,0,.2,1)}
-.comp-fill.ma{background:linear-gradient(90deg,var(--red),#ff6050)}.comp-fill.nh{background:linear-gradient(90deg,var(--blue),#50d0ff)}.comp-fill.us{background:linear-gradient(90deg,var(--green),#50ffaa)}
+.comp-fill.ma{background:linear-gradient(90deg,var(--red),#50d0ff)}.comp-fill.nh{background:linear-gradient(90deg,var(--blue),#ff6050)}.comp-fill.us{background:linear-gradient(90deg,var(--green),#50ffaa)}
 .comp-val{font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:700;width:65px;flex-shrink:0;text-align:right}
 
 /* ════════ FLOW DIAGRAM ════════ */
@@ -116,8 +127,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t1);line-
 .flow-btn.active{background:var(--bg4);color:#fff}
 .flow-diagram{display:flex;align-items:center;justify-content:center;gap:2.5rem;padding:2rem 0;flex-wrap:wrap}
 .flow-state{width:190px;padding:1.5rem;border-radius:var(--r);text-align:center}
-.flow-state.ma{background:var(--red-s);border:1px solid rgba(255,45,45,0.25)}
-.flow-state.nh{background:var(--blue-s);border:1px solid rgba(0,191,255,0.25)}
+.flow-state.ma{background:var(--red-s);border:1px solid rgba(0,191,255,0.25)}
+.flow-state.nh{background:var(--blue-s);border:1px solid rgba(255,45,45,0.25)}
 .flow-sn{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:800;margin-bottom:.5rem}
 .flow-sd{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--t2);line-height:1.7}
 .flow-arrows{display:flex;flex-direction:column;gap:1.2rem;align-items:center;min-width:220px}
@@ -179,6 +190,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t1);line-
 <div class="hero">
   <div class="hero-grid"></div>
   <div class="hero-content">
+    <div class="news-pill"><span class="dot"></span>Trending: Gov. Ayotte just called NH <b>the best state to move to</b> — here's what the federal data actually shows</div>
     <div class="hero-eyebrow">Official Government Data — BLS · BEA · Census · NCES</div>
     <h1><span class="ma">Massachusetts</span> <span class="vs">vs</span> <span class="nh">New Hampshire</span></h1>
     <p class="hero-subtitle">A data-driven competitiveness comparison built exclusively on official federal statistics. No rankings. No think-tank scores. Just hard numbers.</p>
@@ -226,8 +238,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t1);line-
   <h2 class="sec-title">Jobs & Unemployment</h2>
   <p class="sec-desc">NH runs one of the tightest labor markets nationally. MA has seen unemployment climb above the national average.</p>
   <div class="g g3" style="margin-bottom:1.3rem">
-    <div class="card metric"><div class="m-icon" style="background:var(--red-g)">🔴</div><div class="m-val c-red">4.8%</div><div class="m-label">Massachusetts</div><div class="m-sub">+0.7pp YoY</div></div>
-    <div class="card metric"><div class="m-icon" style="background:var(--blue-g)">🔵</div><div class="m-val c-blue">3.1%</div><div class="m-label">New Hampshire</div><div class="m-sub">+0.3pp YoY · 6th lowest nationally</div></div>
+    <div class="card metric"><div class="m-icon" style="background:var(--red-g)">🔵</div><div class="m-val c-red">4.8%</div><div class="m-label">Massachusetts</div><div class="m-sub">+0.7pp YoY</div></div>
+    <div class="card metric"><div class="m-icon" style="background:var(--blue-g)">🔴</div><div class="m-val c-blue">3.1%</div><div class="m-label">New Hampshire</div><div class="m-sub">+0.3pp YoY · 6th lowest nationally</div></div>
     <div class="card metric"><div class="m-icon" style="background:var(--green-g)">🟢</div><div class="m-val c-green">4.4%</div><div class="m-label">United States</div><div class="m-sub">National benchmark</div></div>
   </div>
   <div class="g g2">
@@ -344,8 +356,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t1);line-
   <div class="g g4" style="margin-bottom:1.3rem">
     <div class="card metric" style="border-color:rgba(255,119,0,0.25)"><div class="m-val c-warn" style="font-size:1.8rem">39%</div><div class="m-label">Gr 3–8 ELA Proficient</div><div class="m-sub">MCAS 2024 · Down from 52% in 2019</div></div>
     <div class="card metric" style="border-color:rgba(255,119,0,0.25)"><div class="m-val c-warn" style="font-size:1.8rem">41%</div><div class="m-label">Gr 3–8 Math Proficient</div><div class="m-sub">MCAS 2024 · Down from 49% in 2019</div></div>
-    <div class="card metric" style="border-color:rgba(255,45,45,0.25)"><div class="m-val c-red" style="font-size:1.8rem">45%</div><div class="m-label">Gr 10 Math Proficient</div><div class="m-sub">MCAS 2025 · Down 14pp from 2019</div></div>
-    <div class="card metric" style="border-color:rgba(255,45,45,0.25)"><div class="m-val c-red" style="font-size:1.8rem">19.5%</div><div class="m-label">Chronic Absenteeism</div><div class="m-sub">2024 · Down from 22% in 2023</div></div>
+    <div class="card metric" style="border-color:rgba(0,191,255,0.25)"><div class="m-val c-red" style="font-size:1.8rem">45%</div><div class="m-label">Gr 10 Math Proficient</div><div class="m-sub">MCAS 2025 · Down 14pp from 2019</div></div>
+    <div class="card metric" style="border-color:rgba(0,191,255,0.25)"><div class="m-val c-red" style="font-size:1.8rem">19.5%</div><div class="m-label">Chronic Absenteeism</div><div class="m-sub">2024 · Down from 22% in 2023</div></div>
   </div>
 
   <div class="g g2" style="margin-bottom:1.3rem">
@@ -428,13 +440,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t1);line-
 </footer>
 
 <script>
-const MA='#ff2d2d',NH='#00bfff',US='#00ff88',GOLD='#ffcc00',WARN='#ff7700',PURP='#c084fc';
-const MA_B='rgba(255,45,45,0.15)',NH_B='rgba(0,191,255,0.15)',US_B='rgba(0,255,136,0.15)';
+const MA='#00bfff',NH='#ff2d2d',US='#00ff88',GOLD='#ffcc00',WARN='#ff7700',PURP='#c084fc';
+const MA_B='rgba(0,191,255,0.15)',NH_B='rgba(255,45,45,0.15)',US_B='rgba(0,255,136,0.15)';
 
 Chart.defaults.color='#c8d0df';Chart.defaults.borderColor='rgba(255,255,255,0.05)';
 Chart.defaults.font.family="'DM Sans',sans-serif";Chart.defaults.font.size=12;
 Chart.defaults.plugins.legend.labels.usePointStyle=true;Chart.defaults.plugins.legend.labels.pointStyleWidth=8;
-Chart.defaults.plugins.tooltip.backgroundColor='rgba(6,8,13,0.95)';Chart.defaults.plugins.tooltip.borderColor='rgba(255,255,255,0.15)';
+Chart.defaults.plugins.tooltip.backgroundColor='rgba(12,16,32,0.96)';Chart.defaults.plugins.tooltip.borderColor='rgba(255,255,255,0.15)';
 Chart.defaults.plugins.tooltip.borderWidth=1;Chart.defaults.plugins.tooltip.cornerRadius=8;Chart.defaults.plugins.tooltip.padding=12;
 Chart.defaults.plugins.tooltip.titleFont={family:"'DM Sans',sans-serif",size:13,weight:'700'};
 Chart.defaults.plugins.tooltip.bodyFont={family:"'JetBrains Mono',monospace",size:12};
@@ -458,8 +470,8 @@ function initOverview(){
   if(C.radar)C.radar.destroy();
   C.radar=new Chart(document.getElementById('radarChart'),{type:'radar',data:{
     labels:['Low Unemployment','Low Cost of Living','GDP Per Capita','Real PCE Growth','Net Migration','Purchasing Power'],
-    datasets:[{label:'MA',data:[35,24,94,100,28,85],borderColor:MA,backgroundColor:MA_B,borderWidth:2.5,pointRadius:6,pointBackgroundColor:MA,pointBorderColor:'#0a0f1a',pointBorderWidth:2,pointHoverRadius:9},
-    {label:'NH',data:[72,73,60,84,72,78],borderColor:NH,backgroundColor:NH_B,borderWidth:2.5,pointRadius:6,pointBackgroundColor:NH,pointBorderColor:'#0a0f1a',pointBorderWidth:2,pointHoverRadius:9}]},
+    datasets:[{label:'MA',data:[35,24,94,100,28,85],borderColor:MA,backgroundColor:MA_B,borderWidth:2.5,pointRadius:6,pointBackgroundColor:MA,pointBorderColor:'#131a2e',pointBorderWidth:2,pointHoverRadius:9},
+    {label:'NH',data:[72,73,60,84,72,78],borderColor:NH,backgroundColor:NH_B,borderWidth:2.5,pointRadius:6,pointBackgroundColor:NH,pointBorderColor:'#131a2e',pointBorderWidth:2,pointHoverRadius:9}]},
     options:{scales:{r:{beginAtZero:true,max:100,grid:{color:'rgba(255,255,255,0.05)'},angleLines:{color:'rgba(255,255,255,0.07)'},pointLabels:{font:{size:11,weight:'600'},color:'#c8d0df'},ticks:{display:false}}},
     plugins:{legend:{position:'bottom',labels:{padding:20,color:'#c8d0df'}}},animation:{duration:1200,easing:'easeOutQuart'}}});
 
@@ -509,7 +521,7 @@ function initLabor(){
       onHover:(e,el,chart)=>{chart.canvas.style.cursor=el.length?'crosshair':'default'},
       scales:{y:{beginAtZero:false,min:2,max:5.5,ticks:{callback:v=>v+'%'},grid:{color:'rgba(255,255,255,0.04)'}},x:{grid:{display:false}}},
       plugins:{legend:{position:'bottom'},
-        tooltip:{mode:'index',intersect:false,backgroundColor:'rgba(6,8,13,0.95)',borderColor:'rgba(255,255,255,0.15)',borderWidth:1,
+        tooltip:{mode:'index',intersect:false,backgroundColor:'rgba(12,16,32,0.96)',borderColor:'rgba(255,255,255,0.15)',borderWidth:1,
           padding:12,cornerRadius:8,titleFont:{family:"'DM Sans',sans-serif",size:13,weight:'700'},bodyFont:{family:"'JetBrains Mono',monospace",size:12},
           titleColor:'#fff',bodySpacing:6,
           callbacks:{label:function(ctx){
@@ -586,16 +598,16 @@ function initEducation(){
     data:{
     labels:['2019','2022','2023','2024','2025'],
     datasets:[
-      {label:'ELA Gr 3–8',data:[52,40,42,39,42],borderColor:MA,backgroundColor:'rgba(255,45,45,0.08)',borderWidth:3,tension:.3,fill:true,pointRadius:5,pointBackgroundColor:MA,pointBorderColor:'#0a0f1a',pointBorderWidth:2,pointHoverRadius:10,pointHoverBackgroundColor:MA,pointHoverBorderColor:'#fff',pointHoverBorderWidth:3},
-      {label:'Math Gr 3–8',data:[49,33,41,41,41],borderColor:NH,backgroundColor:'rgba(0,191,255,0.08)',borderWidth:3,tension:.3,fill:true,pointRadius:5,pointBackgroundColor:NH,pointBorderColor:'#0a0f1a',pointBorderWidth:2,pointHoverRadius:10,pointHoverBackgroundColor:NH,pointHoverBorderColor:'#fff',pointHoverBorderWidth:3},
-      {label:'Math Gr 10',data:[59,50,50,48,45],borderColor:GOLD,backgroundColor:'rgba(255,204,0,0.06)',borderWidth:3,tension:.3,fill:true,pointRadius:5,pointBackgroundColor:GOLD,pointBorderColor:'#0a0f1a',pointBorderWidth:2,pointHoverRadius:10,pointHoverBackgroundColor:GOLD,pointHoverBorderColor:'#fff',pointHoverBorderWidth:3},
-      {label:'ELA Gr 10',data:[61,56,58,57,51],borderColor:PURP,backgroundColor:'rgba(192,132,252,0.06)',borderWidth:3,tension:.3,fill:true,pointRadius:5,pointBackgroundColor:PURP,pointBorderColor:'#0a0f1a',pointBorderWidth:2,pointHoverRadius:10,pointHoverBackgroundColor:PURP,pointHoverBorderColor:'#fff',pointHoverBorderWidth:3}]},
+      {label:'ELA Gr 3–8',data:[52,40,42,39,42],borderColor:MA,backgroundColor:'rgba(0,191,255,0.08)',borderWidth:3,tension:.3,fill:true,pointRadius:5,pointBackgroundColor:MA,pointBorderColor:'#131a2e',pointBorderWidth:2,pointHoverRadius:10,pointHoverBackgroundColor:MA,pointHoverBorderColor:'#fff',pointHoverBorderWidth:3},
+      {label:'Math Gr 3–8',data:[49,33,41,41,41],borderColor:NH,backgroundColor:'rgba(255,45,45,0.08)',borderWidth:3,tension:.3,fill:true,pointRadius:5,pointBackgroundColor:NH,pointBorderColor:'#131a2e',pointBorderWidth:2,pointHoverRadius:10,pointHoverBackgroundColor:NH,pointHoverBorderColor:'#fff',pointHoverBorderWidth:3},
+      {label:'Math Gr 10',data:[59,50,50,48,45],borderColor:GOLD,backgroundColor:'rgba(255,204,0,0.06)',borderWidth:3,tension:.3,fill:true,pointRadius:5,pointBackgroundColor:GOLD,pointBorderColor:'#131a2e',pointBorderWidth:2,pointHoverRadius:10,pointHoverBackgroundColor:GOLD,pointHoverBorderColor:'#fff',pointHoverBorderWidth:3},
+      {label:'ELA Gr 10',data:[61,56,58,57,51],borderColor:PURP,backgroundColor:'rgba(192,132,252,0.06)',borderWidth:3,tension:.3,fill:true,pointRadius:5,pointBackgroundColor:PURP,pointBorderColor:'#131a2e',pointBorderWidth:2,pointHoverRadius:10,pointHoverBackgroundColor:PURP,pointHoverBorderColor:'#fff',pointHoverBorderWidth:3}]},
     options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
       onHover:(e,el,chart)=>{chart.canvas.style.cursor=el.length?'crosshair':'default'},
       scales:{y:{min:25,max:70,ticks:{callback:v=>v+'%',color:'#c8d0df'},grid:{color:'rgba(255,255,255,0.04)'}},
         x:{grid:{display:false},ticks:{color:'#c8d0df'}}},
       plugins:{legend:{position:'bottom',labels:{padding:16,color:'#c8d0df'}},
-        tooltip:{mode:'index',intersect:false,backgroundColor:'rgba(6,8,13,0.95)',borderColor:'rgba(255,255,255,0.15)',borderWidth:1,
+        tooltip:{mode:'index',intersect:false,backgroundColor:'rgba(12,16,32,0.96)',borderColor:'rgba(255,255,255,0.15)',borderWidth:1,
           padding:12,cornerRadius:8,titleFont:{family:"'DM Sans',sans-serif",size:13,weight:'700'},bodyFont:{family:"'JetBrains Mono',monospace",size:12},
           titleColor:'#fff',bodySpacing:6,usePointStyle:true,boxPadding:4,
           callbacks:{label:function(ctx){return ' '+ctx.dataset.label+': '+ctx.parsed.y+'%';},
@@ -661,13 +673,13 @@ function initMigration(){
   if(C.maMig)C.maMig.destroy();
   C.maMig=new Chart(document.getElementById('maMigChart'),{type:'bar',data:{labels:['2022–2023','2023–2024'],datasets:[
     {label:'Domestic',data:[-39513,-30553],backgroundColor:MA,borderRadius:6},
-    {label:'International',data:[67287,66158],backgroundColor:'rgba(255,45,45,0.35)',borderRadius:6}]},
+    {label:'International',data:[67287,66158],backgroundColor:'rgba(0,191,255,0.35)',borderRadius:6}]},
     options:{responsive:true,maintainAspectRatio:false,scales:{y:{ticks:{callback:v=>(v/1000).toFixed(0)+'K'},grid:{color:'rgba(255,255,255,0.04)'}},x:{grid:{display:false}}},plugins:{legend:{position:'bottom'}}}});
 
   if(C.nhMig)C.nhMig.destroy();
   C.nhMig=new Chart(document.getElementById('nhMigChart'),{type:'bar',data:{labels:['2022–2023','2023–2024'],datasets:[
     {label:'Domestic',data:[-7058,6843],backgroundColor:[MA,NH],borderRadius:6},
-    {label:'International',data:[4987,4781],backgroundColor:['rgba(0,191,255,0.3)','rgba(0,191,255,0.3)'],borderRadius:6}]},
+    {label:'International',data:[4987,4781],backgroundColor:['rgba(255,45,45,0.3)','rgba(255,45,45,0.3)'],borderRadius:6}]},
     options:{responsive:true,maintainAspectRatio:false,scales:{y:{ticks:{callback:v=>(v/1000).toFixed(0)+'K'},grid:{color:'rgba(255,255,255,0.04)'}},x:{grid:{display:false}}},plugins:{legend:{position:'bottom'}}}});
 
   const mo=mig['2024'].maOut,no=mig['2024'].nhOut;
