@@ -351,8 +351,9 @@ body{font-family:'DM Sans',sans-serif;color:var(--t1);line-height:1.6;overflow-x
   <!-- ═══ BEHIND THE RANKINGS ═══ -->
   <div style="margin-top:2.5rem;margin-bottom:.5rem"><div class="sec-label" style="color:var(--warn)">⚠ Behind the Rankings</div>
   <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:800;margin-bottom:.5rem">The Proficiency Problem</h3>
-  <p class="sec-desc">MA ranks #1 on NAEP — but that means being the best in a country where most students can't meet proficiency standards. On MA's own MCAS test, fewer than half of students meet grade-level expectations. The pandemic made it worse, and the state hasn't recovered.</p></div>
+  <p class="sec-desc">MA ranks #1 on NAEP and NH beats the national average too — but both states' own tests tell a rougher story than the national rankings suggest. Below, each state gets the same scrutiny on its own assessment.</p></div>
 
+  <h4 style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin:0 0 .8rem;color:var(--red)">Massachusetts — MCAS</h4>
   <div class="g g4" style="margin-bottom:1.3rem">
     <div class="card metric" style="border-color:rgba(255,119,0,0.25)"><div class="m-val c-warn" style="font-size:1.8rem">39%</div><div class="m-label">Gr 3–8 ELA Proficient</div><div class="m-sub">MCAS 2024 · Down from 52% in 2019</div></div>
     <div class="card metric" style="border-color:rgba(255,119,0,0.25)"><div class="m-val c-warn" style="font-size:1.8rem">41%</div><div class="m-label">Gr 3–8 Math Proficient</div><div class="m-sub">MCAS 2024 · Down from 49% in 2019</div></div>
@@ -379,11 +380,41 @@ body{font-family:'DM Sans',sans-serif;color:var(--t1);line-height:1.6;overflow-x
       <p style="font-size:.88rem;color:var(--t2);line-height:1.7;padding:.5rem 0">The UMass Donahue Institute found that <strong style="color:#fff">84% of variation in MCAS scores</strong> across MA districts is explained by socioeconomic factors — real estate values, poverty rates, demographic composition. The test measures zip codes as much as schools.</p>
       <p style="font-size:.88rem;color:var(--t2);line-height:1.7;padding:.5rem 0">Districts like Weston (median home ~$1.5M) and Wellesley routinely see 70–80%+ proficiency. Gateway Cities like Lawrence, Holyoke, Springfield, and Brockton — where child poverty exceeds 20% — often fall below 20–25%.</p>
       <p style="font-size:.88rem;color:var(--t2);line-height:1.7;padding:.5rem 0">In November 2024, MA voters passed <strong style="color:var(--gold)">Question 2</strong>, removing MCAS as a graduation requirement. DESE reports the 2025 results already show more students leaving answers blank or responding off-topic — suggesting reduced stakes are affecting effort.</p>
-      <p style="font-size:.88rem;color:var(--t2);line-height:1.7;padding:.5rem 0">NH avoids some of this dynamic through lower inequality and smaller urban centers, but also lacks the density of elite institutions that inflate MA's statewide averages.</p>
       <div class="source-tag">UMass Donahue Institute · MA DESE · WBUR · Boston Herald · Boston25</div></div>
   </div>
 
-  <div class="callout key" style="margin-top:1.3rem"><strong>Bottom line:</strong> MA is #1 in NAEP, #1 in bachelor's attainment, top-5 in spending — and still, <strong>6 in 10 students don't meet grade-level expectations</strong> on the state's own test. NH outperforms national averages on NAEP with the 2nd-lowest student-teacher ratio and less spending inequality across districts. Both states are "best in the nation" — in a nation where the bar is extremely low. The real story is the gap between wealthy suburbs and working-class cities within each state.</div>
+  <h4 style="font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin:2.2rem 0 .8rem;color:var(--blue)">New Hampshire — NH SAS</h4>
+  <div class="g g4" style="margin-bottom:1.3rem">
+    <div class="card metric" style="border-color:rgba(255,45,45,0.25)"><div class="m-val c-blue" style="font-size:1.8rem">53.2%</div><div class="m-label">Gr 3–8 ELA Proficient</div><div class="m-sub">NH SAS 2025 · Still below 54.9% in 2019</div></div>
+    <div class="card metric" style="border-color:rgba(255,45,45,0.25)"><div class="m-val c-blue" style="font-size:1.8rem">44.1%</div><div class="m-label">Gr 3–8 Math Proficient</div><div class="m-sub">NH SAS 2025 · Still below 48.5% in 2019</div></div>
+    <div class="card metric" style="border-color:rgba(255,45,45,0.25)"><div class="m-val" style="font-size:1.8rem;color:var(--warn)">30%</div><div class="m-label">Gr 11 Math Proficient (SAT)</div><div class="m-sub">2024 · Down every year since 2019's 40%</div></div>
+    <div class="card metric" style="border-color:rgba(255,45,45,0.25)"><div class="m-val" style="font-size:1.8rem;color:var(--warn)">33%</div><div class="m-label">Chronic Absenteeism</div><div class="m-sub">2021-22 (KIDS COUNT) · NH doesn't publish a standardized annual rate the way MA does</div></div>
+  </div>
+
+  <div class="g g2" style="margin-bottom:1.3rem">
+    <div class="card"><div class="card-h"><span class="card-t">NH SAS Proficiency — Pandemic Collapse</span><span class="badge b-blue">NH DOE</span></div>
+      <div class="chart-box tall"><canvas id="nhCollapseChart"></canvas></div>
+      <div class="source-tag">NH Dept. of Education · NH SAS grades 3–8 (% proficient) & SAT School Day grade 11 (% proficient) · 2019–2025</div></div>
+    <div class="card"><div class="card-h"><span class="card-t">The High School Slide</span><span class="badge b-blue">SAT School Day, Gr 11</span></div>
+      <div class="chart-box tall"><canvas id="nhSatChart"></canvas></div>
+      <div class="source-tag">NH Dept. of Education · % proficient, junior class · Math has declined every year since 2019</div></div>
+  </div>
+
+  <div class="callout warn"><strong>The High School Story Nobody's Telling:</strong> While NH's grades 3–8 scores are inching back toward pre-pandemic levels, its 11th graders are moving the wrong direction — math proficiency on the SAT School Day fell essentially every year from 40% in 2019 to just 30% in 2024, a steeper and more consistent decline than MA saw at grade 10 (59% → 45%). Reading held up better, closing the gap and returning to 63% proficient in 2024.</div>
+
+  <div class="g g2" style="margin-top:1.3rem">
+    <div class="card"><div class="card-h"><span class="card-t">Two New Hampshires</span><span class="badge b-blue">District Divide</span></div>
+      <div class="chart-box tall"><canvas id="nhGatewayChart"></canvas></div>
+      <div class="source-tag">NH Dept. of Education, 2023–25 NH SAS/SAT · District-level, via Niche · Illustrative districts</div></div>
+    <div class="card"><div class="card-h"><span class="card-t">Rockingham vs. the Rest</span></div>
+      <p style="font-size:.88rem;color:var(--t2);line-height:1.7;padding:.5rem 0">NH doesn't have MA's exact "Gateway Cities" framework, but the pattern is the same. Affluent Rockingham County suburbs like Bedford (median household income ~$151K–$160K) and Windham routinely post <strong style="color:#fff">70–80%+ proficiency</strong>. Manchester and Claremont — plus the state's poorest counties, Coos, Sullivan, and Cheshire — often fall below 30%.</p>
+      <p style="font-size:.88rem;color:var(--t2);line-height:1.7;padding:.5rem 0">Manchester, NH's largest and most economically diverse district, tested at just <strong style="color:#fff">18% math and 28% reading</strong> proficient district-wide in 2024–25 — below even MA's lowest Gateway Cities.</p>
+      <p style="font-size:.88rem;color:var(--t2);line-height:1.7;padding:.5rem 0">Local coverage has used the same "Two New Hampshires" framing for years to describe this divide — the state's aggregate NAEP and per-pupil-spending numbers mask it just as thoroughly as MA's statewide averages do.</p>
+      <p style="font-size:.88rem;color:var(--t2);line-height:1.7;padding:.5rem 0">NH has fewer of MA's ultra-wealthy outlier suburbs (no Weston-level towns) but also fewer large, high-poverty urban centers — its distribution is narrower on both ends.</p>
+      <div class="source-tag">NH Dept. of Education · Niche · InDepthNH · U.S. Census ACS</div></div>
+  </div>
+
+  <div class="callout key" style="margin-top:1.3rem"><strong>Bottom line:</strong> MA is #1 in NAEP, #1 in bachelor's attainment, top-5 in spending — and still, <strong>6 in 10 students don't meet grade-level expectations</strong> on the state's own test. NH beats national NAEP averages and has the 2nd-lowest student-teacher ratio in New England — but on its own NH SAS test, fewer than half of students are proficient in math, and its 11th graders have gotten steadily worse at math since 2019, not better. Both states are "best in the nation" in a nation where the bar is low, and in both, the real story is the gap between wealthy suburbs and working-class cities.</div>
 </div>
 
 <!-- ══════ MIGRATION ══════ -->
@@ -428,6 +459,7 @@ body{font-family:'DM Sans',sans-serif;color:var(--t1);line-height:1.6;overflow-x
       <tr><td><strong>NCES</strong></td><td>CCD School Finance (NPEFS)</td><td>FY 2022</td><td>Apr 2024</td></tr>
       <tr><td><strong>NEA</strong></td><td>Rankings & Estimates</td><td>2023-24</td><td>Dec 2024</td></tr>
       <tr><td><strong>MA DESE</strong></td><td>MCAS Achievement Results</td><td>Spring 2024 & 2025</td><td>Sep 2024 & Sep 2025</td></tr>
+      <tr><td><strong>NH DOE</strong></td><td>NH SAS & SAT School Day Results</td><td>2019–2025</td><td>Ongoing, annual</td></tr>
       <tr><td><strong>MA Admin</strong></td><td>EA Shelter Biweekly Reports</td><td>FY2024–FY2025</td><td>Ongoing</td></tr>
       <tr><td><strong>UMass</strong></td><td>Donahue Institute (MCAS variance)</td><td>2001 methodology</td><td>Cited in literature</td></tr>
       <tr><td><strong>Boston Fed</strong></td><td>NE Conditions Report</td><td>Through Jun 2, 2026</td><td>Jun 5, 2026</td></tr>
@@ -636,6 +668,57 @@ function initEducation(){
     datasets:[
       {label:'ELA M+E %',data:[82,78,75,39,30,22,18,15,12],backgroundColor:['#00ff88','#00ff88','#00ff88','#ffcc00','#2d3748','#ff7700','#ff2d2d','#ff2d2d','#ff2d2d'],borderRadius:5,borderSkipped:false},
       {label:'Math M+E %',data:[78,74,72,41,25,18,14,11,9],backgroundColor:['rgba(0,255,136,0.45)','rgba(0,255,136,0.45)','rgba(0,255,136,0.45)','rgba(255,204,0,0.45)','rgba(45,55,72,0.7)','rgba(255,119,0,0.45)','rgba(255,45,45,0.45)','rgba(255,45,45,0.45)','rgba(255,45,45,0.45)'],borderRadius:5,borderSkipped:false}]},
+    options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
+      scales:{x:{max:100,ticks:{callback:v=>v+'%',color:'#c8d0df'},grid:{color:'rgba(255,255,255,0.04)'}},
+        y:{grid:{display:false},ticks:{font:{family:"'JetBrains Mono',monospace",size:11,weight:'600'},color:'#c8d0df'}}},
+      plugins:{legend:{position:'bottom',labels:{padding:16,color:'#c8d0df'}}}}});
+
+  // NH SAS Collapse Chart — grades 3-8, pandemic drop & recovery
+  if(C.nhCollapse)C.nhCollapse.destroy();
+  C.nhCollapse=new Chart(document.getElementById('nhCollapseChart'),{type:'line',
+    plugins:[crosshairPlugin],
+    data:{
+    labels:['2019','2021','2022','2023','2024','2025'],
+    datasets:[
+      {label:'ELA Gr 3–8',data:[54.9,52.0,null,null,51.9,53.2],borderColor:NH,backgroundColor:'rgba(255,45,45,0.08)',borderWidth:3,tension:.3,fill:true,pointRadius:5,pointBackgroundColor:NH,pointBorderColor:'#131a2e',pointBorderWidth:2,pointHoverRadius:10,pointHoverBackgroundColor:NH,pointHoverBorderColor:'#fff',pointHoverBorderWidth:3},
+      {label:'Math Gr 3–8',data:[48.5,38.0,null,null,43.3,44.1],borderColor:MA,backgroundColor:'rgba(0,191,255,0.08)',borderWidth:3,tension:.3,fill:true,pointRadius:5,pointBackgroundColor:MA,pointBorderColor:'#131a2e',pointBorderWidth:2,pointHoverRadius:10,pointHoverBackgroundColor:MA,pointHoverBorderColor:'#fff',pointHoverBorderWidth:3}]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      onHover:(e,el,chart)=>{chart.canvas.style.cursor=el.length?'crosshair':'default'},
+      scales:{y:{min:25,max:60,ticks:{callback:v=>v+'%',color:'#c8d0df'},grid:{color:'rgba(255,255,255,0.04)'}},
+        x:{grid:{display:false},ticks:{color:'#c8d0df'}}},
+      plugins:{legend:{position:'bottom',labels:{padding:16,color:'#c8d0df'}},
+        tooltip:{mode:'index',intersect:false,backgroundColor:'rgba(12,16,32,0.96)',borderColor:'rgba(255,255,255,0.15)',borderWidth:1,
+          padding:12,cornerRadius:8,titleFont:{family:"'DM Sans',sans-serif",size:13,weight:'700'},bodyFont:{family:"'JetBrains Mono',monospace",size:12},
+          titleColor:'#fff',bodySpacing:6,usePointStyle:true,boxPadding:4,
+          callbacks:{label:function(ctx){return ctx.parsed.y==null?undefined:' '+ctx.dataset.label+': '+ctx.parsed.y+'%';},
+            afterBody:function(items){if(items[0]?.dataIndex===0)return ['\n  ← Pre-pandemic baseline'];if(items[0]?.dataIndex===1)return ['\n  2022 & 2023 not published at this aggregate level'];return[];}}}}}});
+
+  // NH SAT School Day Gr 11 — the high school slide
+  if(C.nhSat)C.nhSat.destroy();
+  C.nhSat=new Chart(document.getElementById('nhSatChart'),{type:'line',
+    plugins:[crosshairPlugin],
+    data:{
+    labels:['2019','2021','2022','2023','2024'],
+    datasets:[
+      {label:'Reading % Proficient',data:[null,63,61,60,63],borderColor:GOLD,backgroundColor:'rgba(255,204,0,0.06)',borderWidth:3,tension:.3,fill:true,pointRadius:5,pointBackgroundColor:GOLD,pointBorderColor:'#131a2e',pointBorderWidth:2,pointHoverRadius:10,pointHoverBackgroundColor:GOLD,pointHoverBorderColor:'#fff',pointHoverBorderWidth:3},
+      {label:'Math % Proficient',data:[40,42,37,35,30],borderColor:'#ff7700',backgroundColor:'rgba(255,119,0,0.08)',borderWidth:3,tension:.3,fill:true,pointRadius:5,pointBackgroundColor:'#ff7700',pointBorderColor:'#131a2e',pointBorderWidth:2,pointHoverRadius:10,pointHoverBackgroundColor:'#ff7700',pointHoverBorderColor:'#fff',pointHoverBorderWidth:3}]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      onHover:(e,el,chart)=>{chart.canvas.style.cursor=el.length?'crosshair':'default'},
+      scales:{y:{min:25,max:70,ticks:{callback:v=>v+'%',color:'#c8d0df'},grid:{color:'rgba(255,255,255,0.04)'}},
+        x:{grid:{display:false},ticks:{color:'#c8d0df'}}},
+      plugins:{legend:{position:'bottom',labels:{padding:16,color:'#c8d0df'}},
+        tooltip:{mode:'index',intersect:false,backgroundColor:'rgba(12,16,32,0.96)',borderColor:'rgba(255,255,255,0.15)',borderWidth:1,
+          padding:12,cornerRadius:8,titleFont:{family:"'DM Sans',sans-serif",size:13,weight:'700'},bodyFont:{family:"'JetBrains Mono',monospace",size:12},
+          titleColor:'#fff',bodySpacing:6,usePointStyle:true,boxPadding:4,
+          callbacks:{label:function(ctx){return ctx.parsed.y==null?undefined:' '+ctx.dataset.label+': '+ctx.parsed.y+'%';}}}}}});
+
+  // Two New Hampshires — district divide
+  if(C.nhGateway)C.nhGateway.destroy();
+  C.nhGateway=new Chart(document.getElementById('nhGatewayChart'),{type:'bar',data:{
+    labels:['Bedford','Rye','Windham','State Avg','Nashua','Berlin','Claremont','Manchester'],
+    datasets:[
+      {label:'Reading %',data:[77,76,74,51,45,34,31,28],backgroundColor:['#00ff88','#00ff88','#00ff88','#ffcc00','#ff7700','#ff2d2d','#ff2d2d','#ff2d2d'],borderRadius:5,borderSkipped:false},
+      {label:'Math %',data:[73,72,65,42,34,34,23,18],backgroundColor:['rgba(0,255,136,0.45)','rgba(0,255,136,0.45)','rgba(0,255,136,0.45)','rgba(255,204,0,0.45)','rgba(255,119,0,0.45)','rgba(255,45,45,0.45)','rgba(255,45,45,0.45)','rgba(255,45,45,0.45)'],borderRadius:5,borderSkipped:false}]},
     options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',
       scales:{x:{max:100,ticks:{callback:v=>v+'%',color:'#c8d0df'},grid:{color:'rgba(255,255,255,0.04)'}},
         y:{grid:{display:false},ticks:{font:{family:"'JetBrains Mono',monospace",size:11,weight:'600'},color:'#c8d0df'}}},
